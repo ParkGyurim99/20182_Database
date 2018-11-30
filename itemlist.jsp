@@ -7,15 +7,20 @@
 <title>item list</title>
 </head>
 <body>
-<h1> Item List </h1>
-<br><br>
+<form action="search.jsp" name="form" method="post">
+
+<h1> Item List </h1><br>
+상품 검색 : <input type = "text" size = 30 maxlength = 30 name = "search">
+<input type = "submit" value = "검색">
+ <br><br>
+ 
 	<tr>
 		<td height="60%" align="center" valign="top">
 		<b>과일류</b>
 		<hr>
   	 	<li>바나나 / 오렌지 &nbsp;&nbsp;<button type="button" onclick="location.href='list_banana.jsp'">이동</button></li> <br>		
   		<li>사과 / 배 &nbsp;&nbsp;<button type="button" onclick="location.href='list_apple.jsp'">이동</button></li> <br>
-		<li>수박 / 메론 / 참외 &nbsp;&nbsp;<button type="button" onclick="location.href='list_water.jsp'">이동</button></li> <br>
+		<li>수박 / 메론 / 참외 &nbsp;&nbsp;<button type="button" onclick="location.href='list_watermelon.jsp'">이동</button></li> <br>
 		</td>
 		<br>
 		
@@ -36,5 +41,6 @@
 		<li>소고기 &nbsp;&nbsp;<button type="button" onclick="location.href='list_beef.jsp'">이동</button></li> <br>
 		</td>
 	</tr>
+</form>
 </body>
 </html>
