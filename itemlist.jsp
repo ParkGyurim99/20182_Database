@@ -11,7 +11,7 @@
 <br><br>
 	<tr>
 		<td height="60%" align="center" valign="top">
-		<b>과일류</b>
+		<b>과일류 </b>
 		<hr>
   	 	<li>바나나 / 오렌지 &nbsp;&nbsp;<button type="button" onclick="location.href='list_banana.jsp'">이동</button></li> <br>		
   		<li>사과 / 배 &nbsp;&nbsp;<button type="button" onclick="location.href='list_apple.jsp'">이동</button></li> <br>
