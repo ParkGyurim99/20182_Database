@@ -7,7 +7,7 @@
 <title>item list</title>
 </head>
 <body>
-<h1> Item List </h1>
+<h1> Item List edit test </h1>
 <br><br>
 	<tr>
 		<td height="60%" align="center" valign="top">
