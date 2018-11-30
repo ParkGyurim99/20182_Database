@@ -43,8 +43,14 @@
 			int p_price = rs.getInt("p_price");
 			System.out.println(p_name +"\t" + p_price);
 			out.println("<tr>");
-			out.println("<td>" + p_name + "</td>");
-			out.println("<td>" + p_price + "</td>");
+			//out.println("<td>" + p_name + "</td>");
+	%>
+			<td>
+			<a href="item_info.jsp?p_name=<%=rs.getString("p_name")%>">
+			<%=rs.getString("p_name") %></a>
+			</td>
+	
+	<%			out.println("<td>" + p_price + "</td>");
 			out.println("</tr>");
 		}
 		out.println("</table>");
