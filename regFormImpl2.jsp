@@ -8,7 +8,6 @@
 <head>
 <meta charset="UTF-8">
 <head>
-<title>회원가입 창</title>
 </head>
 <body>
 <form action="regFormProc.jsp" name="form" method="post">

@@ -6,9 +6,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content= "text/html; charset="UTF-8">
-<title>로그인 창</title>
 </head>
 <body>
+<h1> 로그인 </h1>
 <form action = "login_check.jsp" method = "post">
 
 <%	String id;

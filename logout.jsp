@@ -6,9 +6,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content= "text/html; charset="UTF-8">
-<title>로그아웃</title>
 </head>
 <body>
+
+<h1> 로그아웃 </h1>
 
 <%
 session.invalidate();

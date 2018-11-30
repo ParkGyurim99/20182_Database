@@ -4,7 +4,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content= "text/html; charset="UTF-8">
-<title>회원정보 수정</title>
 </head>
 <body>
 <form action="updatePro.jsp" name="form" method="post">
@@ -42,7 +41,7 @@
        <option value="Chungnam">충청남도</option>
        <option value="Jeonbuk">전라북도</option>
        <option value="Jeonnam">전라남도</option>
-     </select><br>
+     </select><br><br>
    휴대폰 : <select name="ph1">
        <option value="010">010</option>
        <option value="011">011</option>
