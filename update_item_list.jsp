@@ -9,7 +9,7 @@
 <body>
 <form action="search.jsp" name="form" method="post">
 
-<h1> Item List </h1><br>
+<h1> 재고를 추가할 상품을 고르시오 </h1><br>
 상품 검색 : <input type = "text" size = 30 maxlength = 30 name = "search">
 <input type = "submit" value = "검색">
  <br><br>
@@ -42,5 +42,5 @@
 		</td>
 	</tr>
 </form>
-<input type="button" value="뒤로가기" onclick="location.href='main.jsp'"><br></body>
+<input type="button" value="뒤로가기" onclick="location.href='managerMain.jsp'"><br></body>
 </html>

@@ -26,6 +26,7 @@
 	Class.forName("com.mysql.jdbc.Driver").newInstance();
 	con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/market", "knu", "comp322");
 
+	String job = (String)session.getAttribute("job");
 	String query = "select p_name, p_price from product where c_name = \"과일류 바나나/오렌지\";";
 	
 	try{	
@@ -38,7 +39,28 @@
 		out.println("</tr>");
 		System.out.println("상품이름\t\t상품가격");
 		
+		if (job.equals("관리자")){
+			while (rs.next()) {
+				String p_name = rs.getString("p_name");
+				int p_price = rs.getInt("p_price");
+				System.out.println(p_name +"\t" + p_price);
+				out.println("<tr>");
+				//out.println("<td>" + p_name + "</td>");
+				%>
+				<td>
+				<a href="update_item_info.jsp?p_name=<%=rs.getString("p_name")%>">
+				<%=rs.getString("p_name") %></a>
+				</td>
+				<%
+				
+				out.println("<td>" + p_price + "</td>");
+				out.println("</tr>");
+			
+			}
+		}
+		
 		while (rs.next()) {
+			out.println("<table border=\"1\">");
 			String p_name = rs.getString("p_name");
 			int p_price = rs.getInt("p_price");
 			System.out.println(p_name +"\t" + p_price);

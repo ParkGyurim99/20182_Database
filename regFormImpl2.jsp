@@ -24,22 +24,22 @@
    ID : <input type="text" size="10" maxlength="15" name="id"><br><br>
    비밀번호 : <input type="password" size="15" maxlength="20" name="pw"><br><br>
 	주소 : <select name= "address">
-       <option value="Seoul">서울특별시</option>
-       <option value="Daegu">대구광역시</option>
-       <option value="Busan">부산광역시</option>
-       <option value="Gwangju">광주광역시</option>
-       <option value="Incheon">인천광역시</option>
-       <option value="Daejeon">대전광역시</option>
-       <option value="Ulsan">울산광역시</option>
-       <option value="Jeju">제주특별자치도</option>
-       <option value="Gyeonggi">경기도</option>
-       <option value="Gangwon">강원도</option>
-       <option value="Gyeongbuk">경상북도</option>
-       <option value="Gyeongnam">경상남도</option>
-       <option value="Chungbuk">충청북도</option>
-       <option value="Chungnam">충청남도</option>
-       <option value="Jeonbuk">전라북도</option>
-       <option value="Jeonnam">전라남도</option><br></br>
+       <option value="서울특별시">서울특별시</option>
+       <option value="대구광역시">대구광역시</option>
+       <option value="부산광역시">부산광역시</option>
+       <option value="광주광역시">광주광역시</option>
+       <option value="인천광역시">인천광역시</option>
+       <option value="대전광역시">대전광역시</option>
+       <option value="울산광역시">울산광역시</option>
+       <option value="제주특별자치도">제주특별자치도</option>
+       <option value="경기도">경기도</option>
+       <option value="강원도">강원도</option>
+       <option value="경상북도">경상북도</option>
+       <option value="경상남도">경상남도</option>
+       <option value="충청북도">충청북도</option>
+       <option value="충청남도">충청남도</option>
+       <option value="전라북도">전라북도</option>
+       <option value="전라남도">전라남도</option><br></br>
        </select>
    휴대폰 : <select name="ph1">
        <option value="010">010</option>

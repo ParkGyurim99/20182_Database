@@ -11,16 +11,26 @@
 <h1> 로그인 </h1>
 <form action = "login_check.jsp" method = "post">
 
-<%	String id;
-if(session.getAttribute("id") != null)
+<%	
+
+String id;
+String job = (String)session.getAttribute("job");
+
+if (session.getAttribute("id") != null && job.equals("관리자"))
 {
-	id = "세션값 있음";
+	id = "관리자 로그인 ";
+}
+
+else if(session.getAttribute("id") != null)
+{
+	id = "고객 로그인 중";
 }
 
 else
 {
 	id = "세션값 없음";
 }
+
 %>
 
 
@@ -35,7 +45,6 @@ else
 	<td><input type = "password" name = "pw"/></td>
 	</tr>
 	<tr><td colspan = "2" align="center"><input type="submit" value="로그인하기"/></td></tr>
-	<tr><td colspan = "2" align = "center"><input type="button" value="로그아웃" onclick="location.href='logout.jsp'"></td></tr>	
 	<tr><td colspan = "2" align = "center"><input type="button" value="회원가입" onclick="location.href='regFormImpl2.jsp'"></td></tr>	
 </table>
 

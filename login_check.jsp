@@ -41,7 +41,7 @@
 		System.out.println("DBms connection success");
 		System.out.println("DB load success");
 		
-		sql = "select id, pw from customer where id = ?";
+		sql = "select id, pw, job from customer where id = ?";
 		pstmt = con.prepareStatement(sql);
 		pstmt.setInt(1, id);
 		
@@ -51,10 +51,21 @@
 		{
 			rs.getInt(1);
 			int dbPass = rs.getInt("pw");
+			String dbjob = rs.getString("job");
+			session.setAttribute("id", id);
+			session.setAttribute("job", dbjob);
 			
-			if (pass == dbPass)
+			if(dbjob.equals("관리자"))
 			{
-				session.setAttribute("id", id);
+				%>
+				<script type = "text/javascript">
+				alert("관리자 세션값 생성");
+				location.href = "managerMain.jsp";
+				</script>
+				<% 
+			}
+			else if (pass == dbPass)
+			{
 				%>
 				<script type = "text/javascript">
 				alert("세션값 생성");
