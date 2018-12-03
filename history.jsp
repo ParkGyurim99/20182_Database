@@ -26,7 +26,7 @@
 	
 	String query = "select sb_id, product.p_num, p_name, quantity, p_price, p_price * quantity "
 			+ "from (product join shopping_bag_item on shopping_bag_item.p_num = product.p_num) "
-			+ "where id = " + id  + ";";
+			+ "where id = " + id  + " order by sb_id desc;";
 			
 	System.out.println(query);
 	

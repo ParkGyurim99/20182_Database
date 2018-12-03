@@ -93,7 +93,7 @@
 		int pn = rs5.getInt("p_num");
 		int si = rs5.getInt("sb_id");
 		
-		query = "update shopping_bag_item set sb_id = " + sb_num + " where p_num = " + pn + ";";
+		query = "update shopping_bag_item set sb_id = " + sb_num + " where p_num = " + pn + " and sb_id = " + (id + 1000) + ";";
 		System.out.println(query);
 		PreparedStatement pstmt6 = con.prepareStatement(query);
 		pstmt6.executeUpdate(query);
