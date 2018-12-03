@@ -1,18 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page language="java" import="java.text.*,java.sql.*"%>
+<%@ page language="java" import="java.text.*,java.sql.*,java.util.Calendar,java.text.SimpleDateFormat"%>
     
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Shopping Bag</title>
+<title>주문 </title>
 </head>
 <body>
-<form action="purchase.jsp" name="form" method="post">
-<h1>장바구니</h1>
+<h1>주문 완료</h1>
+<b>주문이 완료되었습니다. </b><br><br>
 <a href="main.jsp"> < 메인 화면으로 이동 </a><br><br>
-	
+<b> < 주문 내역 > </b><hr>
+
+<%! int sb_num = 2200; %>
+
 <%
 	int sum = 0;
 	Connection con = null;
@@ -23,16 +26,15 @@
 	
 	Integer id = (Integer)session.getAttribute("id");
 	if(id == null)
- 	response.sendRedirect("login.jsp");
-	
-	out.println("<b>" + id + " 님의 장바구니</b><hr>");
-	
+	response.sendRedirect("login.jsp");
+	request.setCharacterEncoding("utf-8");
+		
 	String query = "select product.p_num, p_name, quantity, p_price, p_price * quantity " 
 			+ "from(product join shopping_bag_item on shopping_bag_item.p_num = product.p_num) "
 			+ "where sb_id = " + (id + 1000) + ";";
-			
+				
 	System.out.println(query);
-			
+				
 	try{	
 		out.println("<table border=\"1\">");
 		pstmt = con.prepareStatement(query);
@@ -44,13 +46,13 @@
 		out.println("<td><b>상품 가격</b></td>");
 		out.println("<td><b>총 가격</b></td>");
 		out.println("</tr>");
-				
+					
 		while (rs.next()) {
 			int p_num = rs.getInt("product.p_num");
 			String p_name = rs.getString("p_name");
 			int quantity = rs.getInt("quantity");
 			int p_price = rs.getInt("p_price");
-				
+					
 			out.println("<tr>");
 			out.println("<td>" + p_num + "</td>");
 			out.println("<td>" + p_name + "</td>");
@@ -60,17 +62,45 @@
 			sum += p_price * quantity;
 			out.println("</tr>");
 		}
-		out.println("<td></td><td></td><td>총 가격</td><td>" + sum + "원</td>");
-%>
-		<td><input type = "submit" value = "주문하기"></td>
-		</table>
-<%
+		out.println("<td></td><td></td><td></td><td>총 가격</td><td>" + sum + "원</td>");
 	}
 	catch (Exception e){
 		System.out.println("fail : " + e.toString());
 	}	
-	sum = 0;
+	
+	
+	
+	//db에 추가
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+	Calendar c = Calendar.getInstance();
+	String today = sdf.format(c.getTime());
+	
+	PreparedStatement pstmt3 = con.prepareStatement("select delivery from shopping_bag where sb_id = " + (id+1000) + ";");
+	ResultSet rs3 = pstmt3.executeQuery();
+	rs3.next();
+	String d_loc = rs3.getString("delivery");
+	
+	query = "insert into shopping_bag values (" + sb_num + ", '" + d_loc + "', " + sum + ", " + id + ", '" + today + "');";
+	System.out.println(query);
+	PreparedStatement pstmt4 = con.prepareStatement(query);
+ 	pstmt4.executeUpdate(query);
+	pstmt4.close();
+
+	
+	PreparedStatement pstmt5 = con.prepareStatement("select p_num, sb_id from shopping_bag_item where sb_id = " + (id+1000) + ";");
+	ResultSet rs5 = pstmt5.executeQuery();
+	while (rs5.next()) {
+		int pn = rs5.getInt("p_num");
+		int si = rs5.getInt("sb_id");
+		
+		query = "update shopping_bag_item set sb_id = " + sb_num + " where p_num = " + pn + ";";
+		System.out.println(query);
+		PreparedStatement pstmt6 = con.prepareStatement(query);
+		pstmt6.executeUpdate(query);
+	}
+	
+	sb_num++;
 %>
-</form>
+
 </body>
 </html>

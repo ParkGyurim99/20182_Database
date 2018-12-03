@@ -46,7 +46,6 @@
 	out.println("<td><b>총 가격</b></td>");
 	out.println("</tr>");
 */
-
 	while (rs.next()) {
 		int sb_id = rs.getInt("sb_id");
 		int p_num = rs.getInt("product.p_num");

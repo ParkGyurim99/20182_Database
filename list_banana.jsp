@@ -46,21 +46,19 @@
 				System.out.println(p_name +"\t" + p_price);
 				out.println("<tr>");
 				//out.println("<td>" + p_name + "</td>");
-				%>
+		%>
 				<td>
 				<a href="update_item_info.jsp?p_name=<%=rs.getString("p_name")%>">
 				<%=rs.getString("p_name") %></a>
 				</td>
-				<%
-				
+		<%
 				out.println("<td>" + p_price + "</td>");
 				out.println("</tr>");
-			
 			}
 		}
 		
 		while (rs.next()) {
-			out.println("<table border=\"1\">");
+			//out.println("<table border=\"1\">");
 			String p_name = rs.getString("p_name");
 			int p_price = rs.getInt("p_price");
 			System.out.println(p_name +"\t" + p_price);

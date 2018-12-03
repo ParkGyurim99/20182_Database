@@ -10,7 +10,7 @@
 <title>Item Info.</title>
 </head>
 <body>
-<form action="itemlist.jsp" name="form" method="post">
+<form action="add_to_sb.jsp" name="form" method="post">
 <br>
 <%
 	Connection con = null;
@@ -18,16 +18,14 @@
 	ResultSet rs;
 	Class.forName("com.mysql.jdbc.Driver").newInstance();
 	con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/market", "knu", "comp322");
-
 	request.setCharacterEncoding("UTF-8");
-	String p_name = request.getParameter("p_name");
 	
+	String p_name = request.getParameter("p_name");
 	System.out.println(p_name);
 	out.println("<b>' " + p_name + " ' 의 정보</b><br><br>");
 	
 	String query = "select p_name, p_price, product.p_num, c_name, company, c_location from product, producer where p_name = '" + p_name 
 			+ "' and producer.p_num = (select p_num from product where p_name = '" + p_name + "');";
-
 	System.out.println(query);
 	
 	try{	
@@ -57,6 +55,7 @@
 		String c_location = rs.getString("c_location");
 		System.out.println(p_name +"\t" + p_price +"\t" + p_num +"\t" + c_name +"\t" + company +"\t" + c_location);
 		
+		
 		out.println("<tr>");
 		out.println("<td>" + p_name + "</td>");
 		out.println("<td>" + p_price + "</td>");
@@ -72,6 +71,7 @@
 		System.out.println("fail : " + e.toString());
 	}
 %>
+
 <br>
 &nbsp;
 수량 : <select name="p_quantity">
@@ -96,9 +96,15 @@
        <option value="19">19</option>
        <option value="20">20</option>
      </select>
- 
-<button type = "button" onclick="location.href='itemlist.jsp'">장바구니에 추가</button><br>
-<input type = "submit" value = "카테고리로 돌아가기">
+&nbsp;
+
+<select name = "p_name">
+	<option value = "<%=p_name%>"><%=p_name%></option>
+</select>
+&nbsp;
+
+<input type = "submit" value = "장바구니에 추가"><br><br>
+<button type = "button" onclick="location.href='itemlist.jsp'">카테고리로 돌아가기</button><br>
 
 </form>
 </body>
