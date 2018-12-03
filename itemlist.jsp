@@ -9,11 +9,27 @@
 <body>
 <form action="search.jsp" name="form" method="post">
 
+<%
+	Integer id = (Integer)session.getAttribute("id");
+	String job = (String)session.getAttribute("job");
+
+	if(id == null) 
+	{
+		response.sendRedirect("login.jsp");
+	}
+	
+	else if (job.equals("관리자"))
+	{
+		response.sendRedirect("update_item_list.jsp");
+	}
+%>
+
 <h1> 상품 목록  </h1>
 <a href="main.jsp"> < 메인 화면으로 이동</a><br><br>
 
 상품 검색 : <input type = "text" size = 30 maxlength = 30 name = "search">
 <input type = "submit" value = "검색">
+<input type="button" value="고객 맞춤 추천상품" onclick="location.href='item_recommand.jsp'"></td></tr>	
 
 <br><br>
 
