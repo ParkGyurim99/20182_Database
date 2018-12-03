@@ -53,7 +53,19 @@
    <input type="radio" name="gender" value="F"> 여자<br><br>
    나이 : <input type="text" size="10" maxlength="2" name="age"><br><br>
    이름 : <input type="text" name="name" size="15" maxlength="15"><br><br>
-   직업 : <input type="text" name="job" size="15" maxlength="15"><br><br>
+   직업 : <select name= "job">
+       <option value="경찰">경찰</option>
+       <option value="변호사">변호사</option>
+       <option value="소방관">소방관</option>
+       <option value="의사">의사</option>
+       <option value="선생님">선생님</option>
+       <option value="학생">학생</option>
+       <option value="회사원">회사원</option>
+       <option value="매니저">매니저</option>
+       <option value="사업가">사업가</option>
+       <option value="제조업자">제조업자</option>
+       <option value="입력안함">입력안함</option>
+        </select>
    </p>
   </td>
   </tr>

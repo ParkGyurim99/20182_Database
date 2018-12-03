@@ -29,7 +29,6 @@
 	String query = "select p_name, p_price from product where c_name = \"과일류 사과/배\";";
 	
 	try{	
-		String job = (String)session.getAttribute("job");
 		out.println("<table border=\"1\">");
 		pstmt = con.prepareStatement(query);
 		rs=pstmt.executeQuery();
@@ -39,7 +38,9 @@
 		out.println("</tr>");
 		System.out.println("상품이름\t\t상품가격");
 		
+		
 			while (rs.next()) {
+				String job = (String)session.getAttribute("job");
 				String p_name = rs.getString("p_name");
 				int p_price = rs.getInt("p_price");
 				System.out.println(p_name +"\t" + p_price);

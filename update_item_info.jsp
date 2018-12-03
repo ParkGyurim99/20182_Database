@@ -10,7 +10,7 @@
 <title>Item Info.</title>
 </head>
 <body>
-<form action="update_item_list.jsp" name="form" method="post">
+<form action="update_item_Pro.jsp" name="form" method="post">
 <br>
 <%
 	Connection con = null;
@@ -50,6 +50,7 @@
 		//p_name = rs.getString("p_name");
 		int p_price = rs.getInt("p_price");
 		int p_num = rs.getInt("p_num");
+		
 		String s_name = rs.getString("s_name");
 		String quantity = rs.getString("quantity");
 		System.out.println(p_name +"\t" + p_price +"\t" + p_num +"\t" + s_name +"\t" + quantity +"\t");
@@ -68,7 +69,9 @@
 		System.out.println("fail : " + e.toString());
 	}
 %>
-
+<br>
+상품 아이디 : <input type = "text" size = 30 maxlength = 30 name = "p_num">
+<br>
 <br>
 &nbsp;
 지점 : <select name="s_name">
@@ -90,7 +93,7 @@
        <option value="포항점">포항점</option>
      </select>
 <br>
-
+<br>
 &nbsp;
 수량 : <select name="p_quantity">
        <option value="1">1</option>
@@ -115,8 +118,8 @@
        <option value="20">20</option>
      </select>
  
-<button type = "button" onclick="location.href='itemlist.jsp'">재고 주문</button><br>
-<input type = "submit" value = "카테고리로 돌아가기">
+<button type = "button" onclick="location.href='update_item_list.jsp'">카테고리로 돌아가</button><br>
+<input type = "submit" value = "재고 주문">
 
 </form>
 </body>
