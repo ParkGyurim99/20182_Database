@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Item Info.</title>
+<title>update Item Info.</title>
 </head>
 <body>
 <form action="update_item_Pro.jsp" name="form" method="post">
@@ -33,12 +33,10 @@
 	try{	
 		pstmt = con.prepareStatement(query);
 		rs=pstmt.executeQuery();
-		
-		while (rs.next()) {
 		out.println("<table border=\"1\">");
-			/* out.println("' " + p_name + " ' 에 대한 정보가 없습니다.<br><br>");
-		} */
-		
+		/* out.println("' " + p_name + " ' 에 대한 정보가 없습니다.<br><br>");
+	} */
+	
 		out.println("<tr>");
 		out.println("<td><b>상품 이름</b></td>");
 		out.println("<td><b>상품 가격</b></td>");
@@ -46,6 +44,8 @@
 		out.println("<td><b>파는 지점</b></td>");
 		out.println("<td><b>현재 재고</b></td>");
 		out.println("</tr>");
+		
+		while (rs.next()) {
 		
 		//p_name = rs.getString("p_name");
 		int p_price = rs.getInt("p_price");
@@ -62,8 +62,9 @@
 		out.println("<td>" + s_name + "</td>");
 		out.println("<td>" + quantity + "</td>");
 		out.println("</tr>");
-		out.println("</table>");
 	}
+		out.println("</table>");
+
 	}
 	catch (Exception e){
 		System.out.println("fail : " + e.toString());
@@ -118,7 +119,7 @@
        <option value="20">20</option>
      </select>
  
-<button type = "button" onclick="location.href='update_item_list.jsp'">카테고리로 돌아가</button><br>
+<button type = "button" onclick="location.href='update_item_list.jsp'">카테고리로 돌아가</button><br><br>
 <input type = "submit" value = "재고 주문">
 
 </form>

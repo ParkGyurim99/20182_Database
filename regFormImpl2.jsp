@@ -75,7 +75,7 @@
    <hr><br>
     <input type="submit" value="가입신청">&nbsp;
     <input type="reset" value="다시입력">&nbsp;
-    <input type="button" value="취소">
+    <input type="button" value="취소" onclick = "location.href = 'login.jsp'">
    </td>
   </tr>
   
