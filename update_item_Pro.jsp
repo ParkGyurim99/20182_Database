@@ -54,7 +54,7 @@
 			pstmt.executeUpdate();
 			%>
 			<script type="text/javascript">
-			alert("제품 재고를 수정하였습니다.");
+			alert("제품 고를 수정하였습니다.");
 			location.href = "update_item_info.jsp";
 			</script>
 			<% 

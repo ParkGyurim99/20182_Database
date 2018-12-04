@@ -28,7 +28,7 @@
 
 상품 검색 : <input type = "text" size = 30 maxlength = 30 name = "search">
 <input type = "submit" value = "검색">
-<input type="button" value="고객 맞춤 추천상품" onclick="location.href='item_recommend.jsp'"></td></tr>	
+<input type="button" value="고객 맞춤 추천상품" onclick="location.href='item_recommend.jsp'">
 
 <br><br>
 

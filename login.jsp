@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content= "text/html; charset="UTF-8">
 </head>
 <body>
-<h1> 로그인 </h1>
+<h1> 로그인 </h1><hr>
 <form action = "login_check.jsp" method = "post">
 
 <%	
@@ -32,25 +32,13 @@ else
 }
 
 %>
-
-
-<table>
-	<tr><th colspan = "2"> 로그인 </th></tr>
-	<tr>
-	<td>아이디</td>
-	<td><input type = "text" name = "id"/></td>
-	</tr>
-	<tr>
-	<td>비밀번호</td>
-	<td><input type = "password" name = "pw"/></td>
-	</tr>
-	<tr><td colspan = "2" align="center"><input type="submit" value="로그인하기"/></td></tr>
-	<tr><td colspan = "2" align = "center"><input type="button" value="회원가입" onclick="location.href='regFormImpl2.jsp'"></td></tr>	
-</table>
+<br>
+아이디 <input type = "text" name = "id"/><br><br>
+비밀번호 <input type = "password" name = "pw"/><br><br>
+<input type="submit" value="로그인하기"/> &nbsp;
+<input type="button" value="회원가입" onclick="location.href='regFormImpl2.jsp'">
 
 </form>
-
-<%= id %>
 
 </body>
 </html>

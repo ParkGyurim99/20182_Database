@@ -119,7 +119,7 @@
        <option value="20">20</option>
      </select>
  
-<button type = "button" onclick="location.href='update_item_list.jsp'">카테고리로 돌아가</button><br><br>
+<button type = "button" onclick="location.href='update_item_list.jsp'">카테고리로 돌아가기</button><br><br>
 <input type = "submit" value = "재고 주문">
 
 </form>
