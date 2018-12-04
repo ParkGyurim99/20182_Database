@@ -67,13 +67,30 @@
 			pstmt.executeUpdate(query);
 
 			pstmt.close();
-			con.close();
+			//con.close();
 			out.println("<script>alert('회원가입 완료'); location.href='login.jsp'</script>");
 		}
 
 		catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		PreparedStatement pstmt20 = con.prepareStatement("select reg_add_num from save;");
+		ResultSet rs20 = pstmt20.executeQuery();
+		rs20.next();
+		int sb_num = rs20.getInt("reg_add_num");
+		System.out.println(sb_num);
+		
+		query = "insert into shopping_bag values (" + sb_num + ", '" + address + "', NULL, " + id + ", NULL);";
+		PreparedStatement pstmt21 = con.prepareStatement(query);
+		pstmt21.executeUpdate(query);
+		pstmt21.close();
+		
+		query = "update save set reg_add_num = reg_add_num + 1;";
+		PreparedStatement pstmt22 = con.prepareStatement(query);
+		pstmt22.executeUpdate(query);
+		pstmt22.close();
+		
 	%>
 
 </body>

@@ -27,9 +27,17 @@
 	
 	out.println("<b>" + id + " 님의 장바구니</b><hr>");
 	
-	String query = "select product.p_num, p_name, quantity, p_price, p_price * quantity " 
-			+ "from(product join shopping_bag_item on shopping_bag_item.p_num = product.p_num) "
-			+ "where sb_id = " + (id + 1000) + ";";
+	String query;
+	if (1000 <= id && id <= 1054) {
+		query = "select product.p_num, p_name, quantity, p_price, p_price * quantity " 
+				+ "from(product join shopping_bag_item on shopping_bag_item.p_num = product.p_num) "
+				+ "where sb_id = " + (id + 1000) + ";";
+	}
+	else {
+		query = "select product.p_num, p_name, quantity, p_price, p_price * quantity " 
+				+ "from(product join shopping_bag_item on shopping_bag_item.p_num = product.p_num) "
+				+ "where id = " + id + ";";
+	}
 			
 	System.out.println(query);
 			

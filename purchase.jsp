@@ -14,8 +14,6 @@
 <a href="main.jsp"> < 메인 화면으로 이동 </a><br><br>
 <b> < 주문 내역 > </b><hr>
 
-<%! int sb_num = 2200; %>
-
 <%
 	int sum = 0;
 	Connection con = null;
@@ -29,10 +27,17 @@
 	response.sendRedirect("login.jsp");
 	request.setCharacterEncoding("utf-8");
 		
-	String query = "select product.p_num, p_name, quantity, p_price, p_price * quantity " 
-			+ "from(product join shopping_bag_item on shopping_bag_item.p_num = product.p_num) "
-			+ "where sb_id = " + (id + 1000) + ";";
-				
+	String query;
+	if (1000 <= id && id <= 1054) {
+		query = "select product.p_num, p_name, quantity, p_price, p_price * quantity " 
+				+ "from(product join shopping_bag_item on shopping_bag_item.p_num = product.p_num) "
+				+ "where sb_id = " + (id + 1000) + ";";
+	}
+	else {
+		query = "select product.p_num, p_name, quantity, p_price, p_price * quantity " 
+				+ "from(product join shopping_bag_item on shopping_bag_item.p_num = product.p_num) "
+				+ "where id = " + id + ";";
+	}			
 	System.out.println(query);
 				
 	try{	
@@ -69,6 +74,12 @@
 	}	
 	
 	
+	PreparedStatement pstmt9 = con.prepareStatement("select purchase_add_num from save;");
+	ResultSet rs9 = pstmt9.executeQuery();
+	rs9.next();
+	int sb_num = rs9.getInt("purchase_add_num");
+	
+	
 	
 	//db에 추가
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -99,7 +110,10 @@
 		pstmt6.executeUpdate(query);
 	}
 	
-	sb_num++;
+	query = "update save set purchase_add_num = purchase_add_num + 1;";
+	PreparedStatement pstmt10 = con.prepareStatement(query);
+	pstmt10.executeUpdate(query);
+	pstmt10.close();
 %>
 
 </body>

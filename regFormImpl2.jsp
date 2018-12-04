@@ -23,24 +23,24 @@
    <br><br>
    ID : <input type="text" size="10" maxlength="15" name="id"><br><br>
    비밀번호 : <input type="password" size="15" maxlength="20" name="pw"><br><br>
-	주소 : <select name= "address">
-       <option value="서울특별시">서울특별시</option>
-       <option value="대구광역시">대구광역시</option>
-       <option value="부산광역시">부산광역시</option>
-       <option value="광주광역시">광주광역시</option>
-       <option value="인천광역시">인천광역시</option>
-       <option value="대전광역시">대전광역시</option>
-       <option value="울산광역시">울산광역시</option>
-       <option value="제주특별자치도">제주특별자치도</option>
-       <option value="경기도">경기도</option>
-       <option value="강원도">강원도</option>
-       <option value="경상북도">경상북도</option>
-       <option value="경상남도">경상남도</option>
-       <option value="충청북도">충청북도</option>
-       <option value="충청남도">충청남도</option>
-       <option value="전라북도">전라북도</option>
-       <option value="전라남도">전라남도</option><br></br>
-       </select>
+	배송받을 점포  : <select name= "address">
+	   <option value="서울본점">서울본점</option>
+	   <option value="대구점">대구점</option>
+	   <option value="부산점">부산점</option>
+       <option value="대전점">대전점</option>
+	   <option value="울산점">울산점</option>
+       <option value="인천점">인천점</option>
+       <option value="광주점">광주점</option>
+       <option value="군산점">군산점</option>
+       <option value="동탄점">동탄점</option>
+       <option value="서귀포점">서귀포점</option>
+       <option value="속초점">속초점</option>
+       <option value="여수점">여수점</option>
+       <option value="창원점">창원점</option>
+       <option value="천안점">천안점</option>
+       <option value="청주점">청주점</option>
+       <option value="포항점">포항점</option>
+     </select><br><br>
    휴대폰 : <select name="ph1">
        <option value="010">010</option>
        <option value="011">011</option>

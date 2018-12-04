@@ -6,10 +6,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content= "text/html; charset="UTF-8">
+<title>고객 정보</title>
 </head>
 <body>
-
 <h1> 회원정보조회 </h1>
+<a href="main.jsp"> < 메인 화면으로 이동</a><br><br>
+<b> < 회원정보 > </b> 
+<hr>
 <% 
 
 	request.setCharacterEncoding("utf-8");
@@ -42,14 +45,14 @@
 		if (rs.next())
 		{
 			%>
-			ID : <%= rs.getString("id") %><br><br>
-			비밀번호 : <%= rs.getString("pw") %><br><br>
-			주소 : <%= rs.getString("address") %><br><br>
-			휴대폰 : <%= rs.getString("phone")%><br><br>
-			성별 : <%= rs.getString("sex") %><br><br>
-			나이 : <%= rs.getString("age") %><br><br>
-			이름 : <%= rs.getString("name") %><br><br>
-			직업 : <%= rs.getString("job") %><br><br><%
+			<li><b>고객ID :</b> <%= rs.getString("id") %></li><br>
+			<li><b>비밀번호 :</b> <%= rs.getString("pw") %></li><br>
+			<li><b>주소 :</b> <%= rs.getString("address") %></li><br>
+			<li><b>휴대폰 :</b> <%= rs.getString("phone")%></li><br>
+			<li><b>성별 :</b> <%= rs.getString("sex") %></li><br>
+			<li><b>나이 :</b> <%= rs.getString("age") %></li><br>
+			<li><b>이름 :</b> <%= rs.getString("name") %></li><br>
+			<li><b>직업 :</b> <%= rs.getString("job") %></li><br><%
 		}
 	}
 		catch(Exception e)
@@ -66,9 +69,8 @@
 
 %>
 
-<a href="updatePassword.jsp">비밀번호수정</a>
+<a href="updatePassword.jsp">비밀번호수정</a>&nbsp;
 <a href="updateForm.jsp">회원정보수정</a>
-<a href="main.jsp">메인화면으로</a>
 
 </body>
 </html>

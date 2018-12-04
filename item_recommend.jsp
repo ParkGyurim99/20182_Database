@@ -9,7 +9,10 @@
 <title>고객 맞춤 추천 상품</title>
 </head>
 <body>
-<h1>고객 맞춤 추천 상품 </h1><hr>
+<h1>고객 맞춤 추천 상품 </h1>
+<a href="itemlist.jsp"> < 상품목록으로 이동 </a><br><br>
+고객님의 연령대 고객님들이 <b>가장 많이 구매</b>하신 상품입니다. 
+<hr><br>
 <%	
 	Connection con = null;
 	PreparedStatement pstmt;
@@ -63,7 +66,7 @@
 	                + "WHERE p_num = (select p_num from pop50 where sum = (select max(sum) from pop50))) "
 	               + "GROUP BY p_num)R WHERE Ranking <= 5;";
 	}
-	
+	System.out.println(Query);
 	pstmt = con.prepareStatement(Query);
 	rs=pstmt.executeQuery();
 	
@@ -76,10 +79,12 @@
 		rs2.next();
 		String p_name = rs2.getString("p_name");
 %>
+		<li>&nbsp;
 		<a href="item_info.jsp?p_name=<%=rs2.getString("p_name")%>">
 		<%=rs2.getString("p_name") %></a>
+		</li><br>
 <%
 	}
-	%>
+%>
 </body>
 </html>
